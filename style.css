@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* permite expansão vertical */
     min-height: 100vh;
     box-sizing: border-box;
     text-align: center;
@@ -119,9 +119,9 @@ p {
     justify-content: flex-start;
     width: 95%;
     max-width: 1200px;
-    min-height: 60vh; /* reduzido para celular */
+    min-height: 60vh;
     margin: 35px 0;
-    padding: 35px; /* padding menor em celular */
+    padding: 35px;
     border: 3px solid #8B0000;
     border-radius: 14px;
     background: rgba(25,0,0,0.7);
@@ -156,7 +156,7 @@ p {
     p { font-size: 1.5em; line-height: 1.4em; }
     .btn { font-size: 1.5em; padding: 14px 25px; margin: 15px; }
     .gif-container { margin: 20px 0; max-width: 95%; }
-    .question-container { width: 95%; padding: 20px; min-height: 50vh; }
+    .question-container { width: 95%; padding: 18px; min-height: 45vh; } /* diminuiu um pouco */
     #options { width: 100%; }
 }
 
@@ -164,5 +164,5 @@ p {
     h1 { font-size: 7vw; margin: 15px 0 10px; }
     p { font-size: 1.3em; line-height: 1.3em; }
     .btn { font-size: 1.3em; padding: 12px 20px; margin: 12px; }
-    .question-container { width: 95%; padding: 15px; min-height: 45vh; }
+    .question-container { width: 95%; padding: 15px; min-height: 40vh; } /* diminuiu ainda mais */
 }
