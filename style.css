@@ -1,123 +1,148 @@
 body {
-    background-color:black;
-    color:white;
-    font-family:'Creepster',cursive;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    min-height:100vh;
+    background-color: #000; /* Preto total */
+    color: #fff;
+    font-family: 'Creepster', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
     box-sizing: border-box;
+    background-image: radial-gradient(circle at top, #1a0000, #000000 80%);
 }
 
+/* Título mais impactante */
 h1 {
-    font-size:2.5vw;
-    margin:20px 0 10px;
-    color:red;
-    text-shadow:2px 2px 0 #8B0000,4px 4px 5px rgba(255,0,0,0.7);
-    text-align:center;
+    font-size: 2.5vw;
+    margin: 20px 0 10px;
+    color: #ff0000;
+    text-shadow:
+        2px 2px 0 #8B0000,
+        4px 4px 10px rgba(255,0,0,0.8),
+        0 0 20px rgba(255,0,0,0.6);
+    text-align: center;
 }
 
+/* Parágrafos com brilho leve */
 p {
-    font-size:1.2em;
-    margin:10px 20px;
-    color:#ccc;
-    text-align:center;
+    font-size: 1.2em;
+    margin: 10px 20px;
+    color: #ccc;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255,0,0,0.3);
 }
 
+/* Botões com efeito neon */
 .btn {
-    background-color:red;
-    color:white;
-    font-size:1.2em;
-    font-family:'Creepster',cursive;
-    padding:12px 25px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    box-shadow:0 0 15px rgba(255,0,0,0.7);
-    transition:all 0.3s ease;
-    margin:10px;
-    display:inline-block;
-    max-width:90%;
+    background-color: #b30000;
+    color: #fff;
+    font-size: 1.2em;
+    font-family: 'Creepster', cursive;
+    padding: 12px 25px;
+    border: 2px solid #ff0000;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #b30000 inset;
+    transition: all 0.3s ease;
+    margin: 10px;
+    display: inline-block;
+    max-width: 90%;
     word-wrap: break-word;
 }
 
+/* Hover mais “assustador” */
 .btn:hover {
-    background-color:darkred;
-    transform:scale(1.05);
+    background-color: #ff0000;
+    transform: scale(1.08);
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff5555 inset;
 }
 
 /* GIF sempre abaixo das opções */
 .gif-container {
-    margin:20px 0;
-    text-align:center;
-    width:90%;
+    margin: 20px 0;
+    text-align: center;
+    width: 90%;
+    animation: glow 2.5s infinite alternate;
 }
 
 .gif-container img {
-    max-width:100%;
-    height:auto;
-    border-radius:10px;
-    box-shadow:0 0 20px rgba(255,0,0,0.7);
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255,0,0,0.8), 0 0 60px rgba(255,0,0,0.5) inset;
+}
+
+/* Animação de brilho */
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+    to { box-shadow: 0 0 40px rgba(255,0,0,0.9); }
 }
 
 /* Pergunta + opções */
 .question-container {
-    display:flex;
-    flex-direction:column; /* opções empilhadas */
-    align-items:flex-start;
-    justify-content:flex-start;
-    width:90%;
-    max-width:600px;
-    margin:20px 0;
-    box-sizing:border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 650px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 2px solid #8B0000;
+    border-radius: 12px;
+    background: rgba(20,0,0,0.6);
+    box-shadow: 0 0 30px rgba(255,0,0,0.5);
 }
 
 /* Opções alinhadas à esquerda */
 #options {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 /* Contadores */
+#roundCounter, #totalQuestions {
+    color: #ff5555;
+    text-shadow: 0 0 5px rgba(255,0,0,0.7);
+}
+
 #roundCounter {
-    font-size:1.5em;
-    margin:10px;
-    color:#ff5555;
-    text-align:center;
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
 }
 
 #totalQuestions {
-    font-size:1em;
-    margin:5px;
-    color:#ff5555;
-    text-align:center;
+    font-size: 1em;
+    margin: 5px;
+    text-align: center;
 }
 
 /* Responsivo */
 @media(max-width:800px){
-    body {justify-content:flex-start;}
-    h1 {font-size:5vw;}
-    .btn {font-size:1em; padding:10px 15px;}
-    .gif-container {margin:15px 0;}
+    body { justify-content:flex-start; }
+    h1 { font-size: 5vw; }
+    .btn { font-size: 1em; padding: 10px 15px; }
+    .gif-container { margin: 15px 0; }
 }
 
 @media(max-width:500px){
-    h1 {font-size:6vw; margin:15px 0 5px;}
-    p {font-size:1em; margin:8px 10px;}
-    .btn {font-size:0.9em; padding:8px 12px;}
+    h1 { font-size: 6vw; margin: 15px 0 5px; }
+    p { font-size: 1em; margin: 8px 10px; }
+    .btn { font-size: 0.9em; padding: 8px 12px; }
     .question-container {
-        width:95%;
-        margin-top:15px;
-        align-items:center;
+        width: 95%;
+        margin-top: 15px;
+        align-items: center;
     }
     #options {
-        width:100%;
-        align-items:center;
+        width: 100%;
+        align-items: center;
     }
-    .gif-container {margin-top:15px;}
+    .gif-container { margin-top: 15px; }
 }
