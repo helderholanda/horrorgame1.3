@@ -1,41 +1,70 @@
+/* =========================== */
+/* ESTILO PRINCIPAL DO JOGO    */
+/* =========================== */
+
 body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Creepster', cursive;
     margin: 0;
     padding: 0;
+    font-family: 'Creepster', cursive;
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Centraliza verticalmente no PC */
     min-height: 100vh;
     box-sizing: border-box;
-    background-image: radial-gradient(circle at top, #1a0000, #000000 80%);
-    text-align: center; /* Força centralização do conteúdo */
+    text-align: center;
+
+    /* Fundo GIF */
+    background: url('wallpaper.gif') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Título mais impactante */
+/* Overlay escuro para legibilidade */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+}
+
+/* =========================== */
+/* TÍTULO                      */
+/* =========================== */
 h1 {
     font-size: 2.5vw;
     margin: 20px 0 10px;
     color: #ff0000;
-    text-shadow: 
+    text-shadow:
         2px 2px 0 #8B0000,
         4px 4px 10px rgba(255,0,0,0.8),
         0 0 20px rgba(255,0,0,0.6);
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-/* Parágrafos com brilho leve */
+/* =========================== */
+/* PARÁGRAFOS                  */
+/* =========================== */
 p {
     font-size: 1.2em;
     margin: 10px 20px;
     color: #ccc;
     text-align: center;
     text-shadow: 0 0 5px rgba(255,0,0,0.3);
+    position: relative;
+    z-index: 1;
 }
 
-/* Botões com efeito neon */
+/* =========================== */
+/* BOTÕES NEON                  */
+/* =========================== */
 .btn {
     background-color: #b30000;
     color: #fff;
@@ -51,6 +80,8 @@ p {
     display: inline-block;
     max-width: 90%;
     word-wrap: break-word;
+    position: relative;
+    z-index: 1;
 }
 
 .btn:hover {
@@ -59,16 +90,20 @@ p {
     box-shadow: 0 0 30px #ff0000, 0 0 50px #ff5555 inset;
 }
 
-/* GIF sempre abaixo das opções */
+/* =========================== */
+/* GIFS DAS QUESTÕES            */
+/* =========================== */
 .gif-container {
     margin: 20px auto;
     text-align: center;
     width: 90%;
-    max-width: 650px; /* Limita a largura do GIF */
+    max-width: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
     animation: glow 2.5s infinite alternate;
+    position: relative;
+    z-index: 1;
 }
 
 .gif-container img {
@@ -81,13 +116,17 @@ p {
     display: block;
 }
 
-/* Animação de brilho */
+/* =========================== */
+/* ANIMAÇÃO DE GLOW            */
+/* =========================== */
 @keyframes glow {
     from { box-shadow: 0 0 20px rgba(255,0,0,0.5); }
     to { box-shadow: 0 0 40px rgba(255,0,0,0.9); }
 }
 
-/* Pergunta + opções */
+/* =========================== */
+/* CONTAINER DAS PERGUNTAS     */
+/* =========================== */
 .question-container {
     display: flex;
     flex-direction: column;
@@ -102,9 +141,13 @@ p {
     border-radius: 12px;
     background: rgba(20,0,0,0.6);
     box-shadow: 0 0 30px rgba(255,0,0,0.5);
+    position: relative;
+    z-index: 1;
 }
 
-/* Opções alinhadas à esquerda, mas centralizadas no container */
+/* =========================== */
+/* OPÇÕES DAS PERGUNTAS         */
+/* =========================== */
 #options {
     display: flex;
     flex-direction: column;
@@ -112,11 +155,15 @@ p {
     width: 100%;
 }
 
-/* Contadores */
+/* =========================== */
+/* CONTADORES                  */
+/* =========================== */
 #roundCounter, #totalQuestions {
     color: #ff5555;
     text-shadow: 0 0 5px rgba(255,0,0,0.7);
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 #roundCounter {
@@ -129,7 +176,9 @@ p {
     margin: 5px;
 }
 
-/* Responsivo */
+/* =========================== */
+/* RESPONSIVO                   */
+/* =========================== */
 @media(max-width:800px){
     body { justify-content:flex-start; } /* Conteúdo começa mais no topo em tablets/celulares */
     h1 { font-size: 5vw; }
