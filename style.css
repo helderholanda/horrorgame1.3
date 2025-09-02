@@ -10,57 +10,66 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* permite expansão vertical */
     min-height: 100vh;
     box-sizing: border-box;
     text-align: center;
-
-    /* Fundo GIF */
-    background: url('wallpaper.gif') no-repeat center center fixed;
-    background-size: cover;
     position: relative;
     overflow: hidden;
 }
 
-/* Overlay escuro */
+/* Fundo GIF via pseudo-elemento para se ajustar à tela */
 body::before {
     content: "";
-    position: fixed;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('wallpaper.gif') no-repeat center center;
+    background-size: cover; /* cobre a tela inteira sem deformar */
+    z-index: 0;
+    opacity: 0.7; /* contraste com o conteúdo */
+}
+
+/* Overlay escuro para legibilidade */
+body::after {
+    content: "";
+    position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 0;
+    z-index: 1;
 }
 
 /* Título */
 h1 {
-    font-size: 4vw; /* maior ainda */
+    font-size: 4vw;
     margin: 30px 0 20px;
     color: #ff0000;
     text-shadow: 2px 2px 0 #8B0000, 4px 4px 10px rgba(255,0,0,0.8), 0 0 25px rgba(255,0,0,0.6);
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* Parágrafos */
 p {
-    font-size: 2em; /* muito maior */
-    line-height: 1.6em; /* mais espaçamento */
+    font-size: 2em;
+    line-height: 1.6em;
     margin: 20px 25px;
     color: #ccc;
     text-shadow: 0 0 6px rgba(255,0,0,0.4);
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* Botões neon */
 .btn {
     background-color: #b30000;
     color: #fff;
-    font-size: 2em; /* bem maior */
+    font-size: 2em;
     font-family: 'Creepster', cursive;
-    padding: 20px 40px; /* padding maior */
+    padding: 20px 40px;
     border: 2px solid #ff0000;
     border-radius: 14px;
     cursor: pointer;
@@ -71,7 +80,7 @@ p {
     max-width: 95%;
     word-wrap: break-word;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .btn:hover {
@@ -90,7 +99,7 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     border-radius: 12px;
 }
@@ -109,16 +118,16 @@ p {
     align-items: center;
     justify-content: flex-start;
     width: 95%;
-    max-width: 1200px; /* ainda maior */
-    min-height: 70vh; /* ocupa grande parte da tela */
+    max-width: 1200px;
+    min-height: 70vh;
     margin: 35px 0;
-    padding: 45px; /* padding grande */
+    padding: 45px;
     border: 3px solid #8B0000;
     border-radius: 14px;
     background: rgba(25,0,0,0.7);
     box-shadow: 0 0 50px rgba(255,0,0,0.7);
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* Opções */
@@ -135,7 +144,7 @@ p {
     text-shadow: 0 0 6px rgba(255,0,0,0.8);
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 #roundCounter { font-size: 2.5em; margin: 20px; }
