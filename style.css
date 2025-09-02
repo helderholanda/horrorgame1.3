@@ -45,8 +45,8 @@ h1 {
 
 /* Parágrafos */
 p {
-    font-size: 1.2em;
-    margin: 10px 20px;
+    font-size: 1.4em; /* aumentado de 1.2em */
+    margin: 12px 20px;
     color: #ccc;
     text-shadow: 0 0 5px rgba(255,0,0,0.3);
     position: relative;
@@ -57,15 +57,15 @@ p {
 .btn {
     background-color: #b30000;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.4em; /* aumentado de 1.2em */
     font-family: 'Creepster', cursive;
-    padding: 12px 25px;
+    padding: 15px 30px; /* maior padding */
     border: 2px solid #ff0000;
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 0 20px #ff0000, 0 0 40px #b30000 inset;
     transition: all 0.3s ease;
-    margin: 10px;
+    margin: 12px;
     display: inline-block;
     max-width: 90%;
     word-wrap: break-word;
@@ -81,10 +81,10 @@ p {
 
 /* GIF inicial */
 .gif-container {
-    margin: 20px auto;
+    margin: 25px auto; /* aumento do margin */
     text-align: center;
     width: 90%;
-    max-width: 650px;
+    max-width: 750px; /* aumento do max-width */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,9 +108,9 @@ p {
     align-items: center;
     justify-content: flex-start;
     width: 90%;
-    max-width: 650px;
-    margin: 20px 0;
-    padding: 15px;
+    max-width: 900px; /* aumento de 650px */
+    margin: 25px 0; /* mais espaçamento */
+    padding: 25px; /* padding maior */
     border: 2px solid #8B0000;
     border-radius: 12px;
     background: rgba(20,0,0,0.6);
@@ -136,23 +136,24 @@ p {
     z-index: 1;
 }
 
-#roundCounter { font-size: 1.5em; margin: 10px; }
-#totalQuestions { font-size: 1em; margin: 5px; }
+#roundCounter { font-size: 1.7em; margin: 12px; } /* aumento leve */
+#totalQuestions { font-size: 1.2em; margin: 8px; }  /* aumento leve */
 
 /* Responsivo */
 @media(max-width:800px){
     body { justify-content:flex-start; }
     h1 { font-size: 5vw; }
-    .btn { font-size: 1em; padding: 10px 15px; }
-    .gif-container { margin: 15px 0; max-width: 90%; }
-    .question-container { width: 95%; }
+    p { font-size: 1.3em; }
+    .btn { font-size: 1.2em; padding: 12px 25px; }
+    .gif-container { margin: 20px 0; max-width: 90%; }
+    .question-container { width: 95%; max-width: 700px; padding: 20px; }
 }
 
 @media(max-width:500px){
     h1 { font-size: 6vw; margin: 15px 0 5px; }
-    p { font-size: 1em; margin: 8px 10px; }
-    .btn { font-size: 0.9em; padding: 8px 12px; }
-    .question-container { width: 95%; margin-top: 15px; }
+    p { font-size: 1.1em; margin: 8px 10px; }
+    .btn { font-size: 1em; padding: 10px 20px; }
+    .question-container { width: 95%; margin-top: 15px; padding: 18px; }
     #options { width: 100%; }
     .gif-container { margin-top: 15px; max-width: 95%; }
 }
