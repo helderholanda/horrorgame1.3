@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filmes Mortais</title>
+
+<!-- Fonte e CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- ===== Metatags para preview do link ===== -->
+<meta property="og:title" content="Filmes Mortais" />
+<meta property="og:description" content="Você tem coragem de enfrentar seus medos?" />
+<meta property="og:image" content="https://helderholanda.github.io/horrorgame1.2/capa.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://helderholanda.github.io/horrorgame1.2/" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Filmes Mortais">
+<meta name="twitter:description" content="Você tem coragem de enfrentar seus medos?">
+<meta name="twitter:image" content="https://helderholanda.github.io/horrorgame1.2/capa.jpg">
+
+</head>
+<body>
+
+<h1>Filmes Mortais</h1>
+<p>Você tem coragem de enfrentar seus medos?</p>
+<button class="btn" id="startBtn">Aceitar o desafio</button>
+
+<div class="gif-container" id="startGif">
+    <img src="https://media.tenor.com/NMzTYf9OoZoAAAAM/saw-halloween.gif" alt="Boneco Jigsaw">
+</div>
+
+<p id="roundCounter"></p>
+
+<div class="question-container" id="quizContainer" style="display:none;">
+    <p id="questionText"></p>
+    <p id="totalQuestions"></p>
+    <div class="options-wrapper">
+        <div id="options"></div>
+        <div id="timerContainer"><div id="timerFill"></div></div>
+    </div>
+    <div class="gif-container">
+        <img id="questionGif" src="" alt="GIF assustador">
+    </div>
+</div>
+
+<!-- Sons -->
+<audio id="bgMusic" src="musicadefundo.mp3" preload="auto" loop></audio>
+<audio id="soundStart" src="portaabrindo.mp3" preload="auto"></audio>
+<audio id="soundClick" src="tiro.mp3" preload="auto"></audio>
+<audio id="soundLaugh" src="risadamalvada.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
