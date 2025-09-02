@@ -162,7 +162,7 @@ function restartGame() {
   showQuestion();
 }
 
-// ======== BACKGROUND AJUSTE (opcional, já está via CSS) ========
+// ======== BACKGROUND AJUSTE ========
 function adjustBackground() {
   const body = document.body;
   const isMobile = window.innerWidth <= 800;
@@ -174,29 +174,25 @@ window.addEventListener('resize', adjustBackground);
 
 // ======== PWA: instalar app ========
 let deferredInstallPrompt = null;
-
-// Captura o evento antes da instalação
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredInstallPrompt = e;
-  // mostra o botão "Baixar app"
-  if (installBtn) installBtn.style.display = 'inline-block';
+  // Mostra botão apenas na tela inicial
+  if (installBtn && startBtn.style.display !== 'none') {
+    installBtn.style.display = 'inline-block';
+  }
 });
 
-// Clique no botão para instalar
 if (installBtn) {
   installBtn.addEventListener('click', async () => {
     if (!deferredInstallPrompt) return;
     deferredInstallPrompt.prompt();
     const { outcome } = await deferredInstallPrompt.userChoice;
-    // Esconde o botão independente da escolha
     installBtn.style.display = 'none';
     deferredInstallPrompt = null;
     console.log('Resultado da instalação:', outcome);
   });
 }
-
-// iOS não dispara beforeinstallprompt — opcionalmente poderíamos mostrar instruções específicas
 
 // ======== SERVICE WORKER ========
 if ("serviceWorker" in navigator) {
@@ -211,14 +207,14 @@ if ("serviceWorker" in navigator) {
 startBtn.addEventListener("click", async () => {
   await loadData();
   try { soundStart.play().catch(() => {}); } catch {}
-  try {
+  try { 
     bgMusic.volume = 1.0;
-    bgMusic.play().catch(() => {});
+    bgMusic.play().catch(() => {}); 
   } catch {}
 
-  // Esconde capa e mostra quiz
+  // Esconde capa e botão instalar, mostra quiz
   startBtn.style.display = "none";
-  if (installBtn) installBtn.style.display = (deferredInstallPrompt ? 'inline-block' : 'none');
+  if (installBtn) installBtn.style.display = "none"; // garante que não reaparece
   startGif.style.display = "none";
   quizContainer.style.display = "flex";
 
@@ -229,4 +225,4 @@ startBtn.addEventListener("click", async () => {
   currentQuestion = 0;
   score = 0;
   showQuestion();
-}); // <-- ESSENCIAL: fechando corretamente o addEventListener
+});
