@@ -12,7 +12,8 @@ const roundTarget = 6;
 
 // ======== RESULTADOS RODADA ========
 const roundResults = [
-    { winGif: "https://media.tenor.com/Xhn-02DnvOUAAAAM/dragging-almost-there.gif", loseGif: "https://media.tenor.com/xhiOmnHXs9cAAAAM/patrick-star.gif" }
+    { winGif: "https://media.tenor.com/Xhn-02DnvOUAAAAM/dragging-almost-there.gif", 
+      loseGif: "https://media.tenor.com/xhiOmnHXs9cAAAAM/patrick-star.gif" }
 ];
 
 // ======== DOM ========
@@ -43,9 +44,9 @@ async function loadData() {
 }
 
 function shuffleArray(array) {
-    for (let i=array.length-1; i>0; i--) {
-        const j=Math.floor(Math.random()*(i+1));
-        [array[i],array[j]]=[array[j],array[i]];
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
 }
@@ -66,16 +67,16 @@ function showQuestion() {
     if (currentQuestion >= questionDeck.length) { showRoundResult(); return; }
     const q = questionDeck[currentQuestion];
     questionText.textContent = q.text;
-    totalQuestionsP.textContent = `Pergunta ${currentQuestion+1} de ${questionDeck.length}`;
+    totalQuestionsP.textContent = `Pergunta ${currentQuestion + 1} de ${questionDeck.length}`;
     optionsDiv.innerHTML = "";
 
-    let optionsShuffled = q.options.map((opt, idx)=>({opt, idx}));
+    let optionsShuffled = q.options.map((opt, idx) => ({ opt, idx }));
     optionsShuffled = shuffleArray(optionsShuffled);
-    optionsShuffled.forEach(item=>{
+    optionsShuffled.forEach(item => {
         const btn = document.createElement("button");
         btn.textContent = item.opt;
         btn.className = "btn";
-        btn.addEventListener("click", ()=>{
+        btn.addEventListener("click", () => {
             soundClick.play();
             checkAnswer(item.idx);
         });
@@ -109,9 +110,9 @@ function showRoundResult() {
         nextBtn.addEventListener("click", showGameResult);
     } else {
         nextBtn.textContent = "Próxima Rodada";
-        nextBtn.addEventListener("click", ()=>{
+        nextBtn.addEventListener("click", () => {
             round++;
-            currentQuestion=0; score=0;
+            currentQuestion = 0; score = 0;
             createShuffledDeck(); updateRoundCounter(); showQuestion();
         });
     }
@@ -137,20 +138,42 @@ function showGameResult() {
 }
 
 function restartGame() {
-    round = 1; roundWins=0; currentQuestion=0; score=0;
-    optionsDiv.innerHTML=""; questionText.textContent=""; questionGif.src="";
+    round = 1; roundWins = 0; currentQuestion = 0; score = 0;
+    optionsDiv.innerHTML = ""; questionText.textContent = ""; questionGif.src = "";
     unusedQuestions = shuffleArray([...questions]);
     createShuffledDeck(); updateRoundCounter(); showQuestion();
 }
 
+// ======== AJUSTE DINÂMICO DO FUNDO GIF ========
+function adjustBackground() {
+    const body = document.body;
+    const windowRatio = window.innerWidth / window.innerHeight;
+    const isMobile = window.innerWidth <= 800;
+
+    if (isMobile) {
+        body.style.backgroundPosition = 'center top';
+        body.style.backgroundSize = 'cover';
+    } else {
+        body.style.backgroundPosition = 'center center';
+        body.style.backgroundSize = 'cover';
+    }
+}
+
+// Executa ao carregar a página
+adjustBackground();
+
+// Ajusta quando a tela é redimensionada
+window.addEventListener('resize', adjustBackground);
+
 // ======== INÍCIO ========
-startBtn.addEventListener("click", async ()=>{
+startBtn.addEventListener("click", async () => {
     await loadData();
     soundStart.play();
     bgMusic.volume = 1.0;
-    bgMusic.play().catch(()=>{console.log("Erro ao tocar a música de fundo.");});
-    startBtn.style.display="none"; startGif.style.display="none";
-    quizContainer.style.display="flex";
+    bgMusic.play().catch(() => { console.log("Erro ao tocar a música de fundo."); });
+    startBtn.style.display = "none"; 
+    startGif.style.display = "none";
+    quizContainer.style.display = "flex";
     unusedQuestions = shuffleArray([...questions]);
     createShuffledDeck(); updateRoundCounter(); showQuestion();
 });
