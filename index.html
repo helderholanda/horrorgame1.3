@@ -29,21 +29,25 @@
 
 <h1>Filmes Mortais</h1>
 <p>Você tem coragem de enfrentar seus medos?</p>
-<button class="btn" id="startBtn">Aceitar o desafio</button>
 
-<div class="gif-container" id="startGif">
-    <img src="capa.png" alt="capa">
+<div class="cta-row">
+  <button class="btn" id="startBtn">Aceitar o desafio</button>
+  <button class="btn" id="installBtn" style="display:none;">Baixar app</button>
+</div>
+
+<div class="gif-container neon" id="startGif">
+  <img src="capa.png" alt="Capa do jogo Filmes Mortais">
 </div>
 
 <p id="roundCounter"></p>
 
 <div class="question-container" id="quizContainer" style="display:none;">
-    <p id="questionText"></p>
-    <p id="totalQuestions"></p>
-    <div class="options-wrapper">
-        <div id="options"></div>
-        <div id="timerContainer"><div id="timerFill"></div></div>
-    </div>
+  <p id="questionText"></p>
+  <p id="totalQuestions"></p>
+  <div class="options-wrapper">
+      <div id="options"></div>
+      <div id="timerContainer"><div id="timerFill"></div></div>
+  </div>
 </div>
 
 <!-- Sons -->
