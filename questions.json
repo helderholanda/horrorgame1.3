@@ -93,7 +93,7 @@
   { "text": "Em 'A Bruxa', qual animal é associado à bruxaria da família?", "options": ["Cabra", "Corvo", "Gato"], "correct": 0 },
   { "text": "No terror 'O Orfanato', como os filhos desaparecem?", "options": ["Desaparecem misteriosamente", "São sequestrados", "Ficam doentes"], "correct": 0 },
   { "text": "Em 'It: A Coisa', qual é o grupo de crianças que enfrenta Pennywise?", "options": ["O Clube dos Perdedores", "Os Sobreviventes", "Os Corajosos"], "correct": 0 },
-  { "text": "No filme 'A Casa do Medo', o que assombra os personagens?", "options": ["Uma casa maldita", "Um boneco amaldiçoado", "Um lago", "correct": 0 },
+  { "text": "No filme 'A Casa do Medo', o que assombra os personagens?", "options": ["Uma casa maldita", "Um boneco amaldiçoado", "Um lago"], "correct": 0 },
   { "text": "Em 'O Chamado', qual é o meio de transmissão da maldição?", "options": ["Vídeo VHS", "Carta", "Telefone"], "correct": 0 },
   { "text": "No filme 'O Grito', o que provoca as mortes?", "options": ["Um espírito vingativo", "Uma doença misteriosa", "Um assassino humano"], "correct": 0 },
   { "text": "Em 'Rec', qual é a causa do surto de violência no prédio?", "options": ["Infecção viral", "Assassino psicopata", "Fantasma"], "correct": 0 },
