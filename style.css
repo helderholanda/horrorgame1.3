@@ -35,8 +35,8 @@ body::before {
 
 /* Título */
 h1 {
-    font-size: 2.5vw;
-    margin: 20px 0 10px;
+    font-size: 3vw; /* um pouco maior */
+    margin: 25px 0 15px;
     color: #ff0000;
     text-shadow: 2px 2px 0 #8B0000, 4px 4px 10px rgba(255,0,0,0.8), 0 0 20px rgba(255,0,0,0.6);
     position: relative;
@@ -45,8 +45,9 @@ h1 {
 
 /* Parágrafos */
 p {
-    font-size: 1.4em; /* aumentado de 1.2em */
-    margin: 12px 20px;
+    font-size: 1.8em; /* bem maior */
+    line-height: 1.4em; /* espaçamento maior */
+    margin: 15px 20px;
     color: #ccc;
     text-shadow: 0 0 5px rgba(255,0,0,0.3);
     position: relative;
@@ -57,15 +58,15 @@ p {
 .btn {
     background-color: #b30000;
     color: #fff;
-    font-size: 1.4em; /* aumentado de 1.2em */
+    font-size: 1.8em; /* maior */
     font-family: 'Creepster', cursive;
-    padding: 15px 30px; /* maior padding */
+    padding: 18px 35px; /* padding maior */
     border: 2px solid #ff0000;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #b30000 inset;
+    box-shadow: 0 0 25px #ff0000, 0 0 50px #b30000 inset;
     transition: all 0.3s ease;
-    margin: 12px;
+    margin: 15px;
     display: inline-block;
     max-width: 90%;
     word-wrap: break-word;
@@ -75,16 +76,16 @@ p {
 
 .btn:hover {
     background-color: #ff0000;
-    transform: scale(1.08);
-    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff5555 inset;
+    transform: scale(1.1);
+    box-shadow: 0 0 35px #ff0000, 0 0 60px #ff5555 inset;
 }
 
 /* GIF inicial */
 .gif-container {
-    margin: 25px auto; /* aumento do margin */
+    margin: 30px auto;
     text-align: center;
     width: 90%;
-    max-width: 750px; /* aumento do max-width */
+    max-width: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,13 +109,13 @@ p {
     align-items: center;
     justify-content: flex-start;
     width: 90%;
-    max-width: 900px; /* aumento de 650px */
-    margin: 25px 0; /* mais espaçamento */
-    padding: 25px; /* padding maior */
+    max-width: 1100px; /* maior ainda */
+    margin: 30px 0;
+    padding: 35px; /* padding grande */
     border: 2px solid #8B0000;
     border-radius: 12px;
     background: rgba(20,0,0,0.6);
-    box-shadow: 0 0 30px rgba(255,0,0,0.5);
+    box-shadow: 0 0 40px rgba(255,0,0,0.6);
     position: relative;
     z-index: 1;
 }
@@ -136,24 +137,24 @@ p {
     z-index: 1;
 }
 
-#roundCounter { font-size: 1.7em; margin: 12px; } /* aumento leve */
-#totalQuestions { font-size: 1.2em; margin: 8px; }  /* aumento leve */
+#roundCounter { font-size: 2em; margin: 15px; }
+#totalQuestions { font-size: 1.5em; margin: 10px; }
 
 /* Responsivo */
 @media(max-width:800px){
     body { justify-content:flex-start; }
-    h1 { font-size: 5vw; }
-    p { font-size: 1.3em; }
-    .btn { font-size: 1.2em; padding: 12px 25px; }
-    .gif-container { margin: 20px 0; max-width: 90%; }
-    .question-container { width: 95%; max-width: 700px; padding: 20px; }
+    h1 { font-size: 6vw; }
+    p { font-size: 1.5em; line-height: 1.3em; }
+    .btn { font-size: 1.5em; padding: 15px 28px; }
+    .gif-container { margin: 25px 0; max-width: 90%; }
+    .question-container { width: 95%; max-width: 800px; padding: 25px; }
 }
 
 @media(max-width:500px){
-    h1 { font-size: 6vw; margin: 15px 0 5px; }
-    p { font-size: 1.1em; margin: 8px 10px; }
-    .btn { font-size: 1em; padding: 10px 20px; }
-    .question-container { width: 95%; margin-top: 15px; padding: 18px; }
+    h1 { font-size: 7vw; margin: 15px 0 5px; }
+    p { font-size: 1.3em; margin: 10px; line-height: 1.2em; }
+    .btn { font-size: 1.3em; padding: 12px 22px; }
+    .question-container { width: 95%; margin-top: 15px; padding: 20px; }
     #options { width: 100%; }
     .gif-container { margin-top: 15px; max-width: 95%; }
 }
