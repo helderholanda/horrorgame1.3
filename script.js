@@ -1,6 +1,5 @@
 // ======== VARIÁVEIS ========
 let questions = [];
-let gifs = [];
 let currentQuestion = 0;
 let score = 0;
 let round = 1;
@@ -23,7 +22,6 @@ const quizContainer = document.getElementById("quizContainer");
 const questionText = document.getElementById("questionText");
 const totalQuestionsP = document.getElementById("totalQuestions");
 const optionsDiv = document.getElementById("options");
-const questionGif = document.getElementById("questionGif");
 const roundCounter = document.getElementById("roundCounter");
 const soundStart = document.getElementById("soundStart");
 const soundClick = document.getElementById("soundClick");
@@ -35,9 +33,6 @@ async function loadData() {
     try {
         const qResponse = await fetch("questions.json");
         questions = await qResponse.json();
-
-        const gResponse = await fetch("gifs.json");
-        gifs = await gResponse.json();
     } catch (err) {
         console.error("Erro ao carregar dados:", err);
     }
@@ -82,8 +77,6 @@ function showQuestion() {
         });
         optionsDiv.appendChild(btn);
     });
-
-    questionGif.src = gifs[currentQuestion % gifs.length];
 }
 
 function checkAnswer(selected) {
@@ -101,7 +94,11 @@ function showRoundResult() {
     const resultMsg = `Rodada ${round} concluída! Acertos: ${score} / Erros: ${questionDeck.length - score} <br>Você ${roundWon ? 'ganhou' : 'perdeu'} esta rodada!`;
     questionText.innerHTML = resultMsg;
     totalQuestionsP.textContent = "";
-    questionGif.src = roundWon ? roundResults[0].winGif : roundResults[0].loseGif;
+
+    const resultGif = document.createElement("div");
+    resultGif.className = "gif-container";
+    resultGif.innerHTML = `<img src="${roundWon ? roundResults[0].winGif : roundResults[0].loseGif}" alt="Resultado">`;
+    optionsDiv.appendChild(resultGif);
 
     const nextBtn = document.createElement("button");
     nextBtn.className = "btn";
@@ -128,8 +125,12 @@ function showRoundResult() {
 function showGameResult() {
     optionsDiv.innerHTML = "";
     roundCounter.textContent = "";
-    questionGif.src = "https://i.makeagif.com/media/1-12-2016/KM8sKE.gif";
     questionText.innerHTML = `Fim do jogo! Você venceu ${roundWins} de ${totalRounds} rodadas.`;
+    const finalGif = document.createElement("div");
+    finalGif.className = "gif-container";
+    finalGif.innerHTML = `<img src="https://i.makeagif.com/media/1-12-2016/KM8sKE.gif" alt="Fim do jogo">`;
+    optionsDiv.appendChild(finalGif);
+
     const restartBtn = document.createElement("button");
     restartBtn.textContent = "Jogar Novamente";
     restartBtn.className = "btn";
@@ -139,7 +140,7 @@ function showGameResult() {
 
 function restartGame() {
     round = 1; roundWins = 0; currentQuestion = 0; score = 0;
-    optionsDiv.innerHTML = ""; questionText.textContent = ""; questionGif.src = "";
+    optionsDiv.innerHTML = ""; questionText.textContent = "";
     unusedQuestions = shuffleArray([...questions]);
     createShuffledDeck(); updateRoundCounter(); showQuestion();
 }
@@ -147,7 +148,6 @@ function restartGame() {
 // ======== AJUSTE DINÂMICO DO FUNDO GIF ========
 function adjustBackground() {
     const body = document.body;
-    const windowRatio = window.innerWidth / window.innerHeight;
     const isMobile = window.innerWidth <= 800;
 
     if (isMobile) {
@@ -159,10 +159,7 @@ function adjustBackground() {
     }
 }
 
-// Executa ao carregar a página
 adjustBackground();
-
-// Ajusta quando a tela é redimensionada
 window.addEventListener('resize', adjustBackground);
 
 // ======== INÍCIO ========
@@ -170,7 +167,7 @@ startBtn.addEventListener("click", async () => {
     await loadData();
     soundStart.play();
     bgMusic.volume = 1.0;
-    bgMusic.play().catch(() => { console.log("Erro ao tocar a música de fundo."); });
+    bgMusic.play().catch(() => console.log("Erro ao tocar a música de fundo."));
     startBtn.style.display = "none"; 
     startGif.style.display = "none";
     quizContainer.style.display = "flex";
