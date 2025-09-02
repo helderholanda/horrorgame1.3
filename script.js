@@ -173,4 +173,9 @@ startBtn.addEventListener("click", async () => {
     quizContainer.style.display = "flex";
     unusedQuestions = shuffleArray([...questions]);
     createShuffledDeck(); updateRoundCounter(); showQuestion();
+}
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js")
+    .then(() => console.log("Service Worker registrado!"))
+    .catch(err => console.error("Erro ao registrar Service Worker:", err));
 });
