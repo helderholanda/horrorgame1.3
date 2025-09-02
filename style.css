@@ -1,5 +1,5 @@
 body {
-    background-color: #000; /* Preto total */
+    background-color: #000;
     color: #fff;
     font-family: 'Creepster', cursive;
     margin: 0;
@@ -18,10 +18,9 @@ h1 {
     font-size: 2.5vw;
     margin: 20px 0 10px;
     color: #ff0000;
-    text-shadow:
-        2px 2px 0 #8B0000,
-        4px 4px 10px rgba(255,0,0,0.8),
-        0 0 20px rgba(255,0,0,0.6);
+    text-shadow: 2px 2px 0 #8B0000,
+                 4px 4px 10px rgba(255,0,0,0.8),
+                 0 0 20px rgba(255,0,0,0.6);
     text-align: center;
 }
 
@@ -52,7 +51,6 @@ p {
     word-wrap: break-word;
 }
 
-/* Hover mais “assustador” */
 .btn:hover {
     background-color: #ff0000;
     transform: scale(1.08);
@@ -63,15 +61,21 @@ p {
 .gif-container {
     margin: 20px 0;
     text-align: center;
-    width: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: glow 2.5s infinite alternate;
 }
 
 .gif-container img {
     max-width: 100%;
+    max-height: 400px; /* Limite de altura */
+    width: auto;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(255,0,0,0.8), 0 0 60px rgba(255,0,0,0.5) inset;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,0,0,0.8), 0 0 50px rgba(255,0,0,0.5) inset;
+    display: block; /* Evita bordas extras em GIFs */
 }
 
 /* Animação de brilho */
@@ -84,7 +88,7 @@ p {
 .question-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Centraliza PC e mobile */
     justify-content: flex-start;
     width: 90%;
     max-width: 650px;
@@ -97,7 +101,7 @@ p {
     box-shadow: 0 0 30px rgba(255,0,0,0.5);
 }
 
-/* Opções alinhadas à esquerda */
+/* Opções alinhadas à esquerda, mas centralizadas no container */
 #options {
     display: flex;
     flex-direction: column;
@@ -109,18 +113,17 @@ p {
 #roundCounter, #totalQuestions {
     color: #ff5555;
     text-shadow: 0 0 5px rgba(255,0,0,0.7);
+    text-align: center;
 }
 
 #roundCounter {
     font-size: 1.5em;
     margin: 10px;
-    text-align: center;
 }
 
 #totalQuestions {
     font-size: 1em;
     margin: 5px;
-    text-align: center;
 }
 
 /* Responsivo */
@@ -135,14 +138,7 @@ p {
     h1 { font-size: 6vw; margin: 15px 0 5px; }
     p { font-size: 1em; margin: 8px 10px; }
     .btn { font-size: 0.9em; padding: 8px 12px; }
-    .question-container {
-        width: 95%;
-        margin-top: 15px;
-        align-items: center;
-    }
-    #options {
-        width: 100%;
-        align-items: center;
-    }
+    .question-container { width: 95%; margin-top: 15px; }
+    #options { width: 100%; }
     .gif-container { margin-top: 15px; }
 }
